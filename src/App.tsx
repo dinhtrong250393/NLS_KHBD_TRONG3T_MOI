@@ -573,6 +573,13 @@ export default function App() {
                   <option>Địa lý</option>
                   <option>Tin học</option>
                   <option>Ngoại ngữ</option>
+                  <option>Giáo dục thể chất</option>
+                  <option>Giáo dục QPAN</option>
+                  <option>Giáo dục KT&PL</option>
+                  <option>Hoạt động TNHN</option>
+                  <option>Giáo dục địa phương</option>
+                  <option>Công nghệ Sinh</option>
+                  <option>Công nghệ Lý</option>
                 </select>
               </div>
               <div>
