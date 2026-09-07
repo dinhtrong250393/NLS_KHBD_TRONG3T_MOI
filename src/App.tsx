@@ -518,10 +518,13 @@ export default function App() {
         </div>
 
         {/* Center Text Section */}
-        <div className="flex-1 flex flex-col items-center text-center">
-          <h1 className="text-2xl md:text-[32px] font-black uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]">TÍCH HỢP NĂNG LỰC SỐ</h1>
-          <p className="text-blue-100 text-[15px] md:text-[17px] font-bold mt-2 drop-shadow-sm tracking-wide">Năng lực số + AI + STEM và các năng lực khác vào giáo án.</p>
-          <p className="text-blue-50 text-[13px] md:text-[14px] font-semibold mt-1.5 drop-shadow-sm opacity-90 italic">Hỗ trợ tích hợp Năng lực số toàn cấp bởi Thầy Nguyễn Đình Trọng - 3T</p>
+        <div className="flex-1 flex flex-col items-center text-center px-4">
+          <h1 className="text-xl sm:text-2xl md:text-[28px] lg:text-[30px] font-black uppercase tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)] leading-tight max-w-[800px]">
+            TÍCH HỢP NĂNG LỰC SỐ + AI + STEM VÀ CÁC NĂNG LỰC KHÁC VÀO KHBD
+          </h1>
+          <p className="text-blue-50 text-[13px] md:text-[14px] font-semibold mt-2.5 drop-shadow-sm opacity-90 italic">
+            Hỗ trợ tích hợp Năng lực số toàn cấp bởi Thầy Nguyễn Đình Trọng - 3T
+          </p>
         </div>
 
         {/* Right Buttons Section */}
