@@ -1050,7 +1050,7 @@ export default function App() {
                  <div className="absolute inset-0 bg-yellow-400 rounded-full blur-[40px] opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
                  {/* Replace this with the user's uploaded logo once pushed to public */}
                  <img 
-                   src="/logo-toan-thay-trong.png" 
+                   src="/logo-toan-thay-trong.png.png" 
                    alt="Logo Toán Thầy Trọng 3T" 
                    className="w-[85%] h-[85%] object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)] hover:scale-105 transition-transform duration-500 relative z-10"
                    onError={(e) => {
