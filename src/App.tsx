@@ -511,24 +511,24 @@ export default function App() {
       <header className="bg-[#3b72f5] text-white py-5 px-6 shadow-md flex flex-col lg:flex-row items-center justify-between gap-6 sticky top-0 z-50">
         
         {/* Logo Section */}
-        <div className="flex items-center lg:w-1/4 justify-center lg:justify-start">
-          <div className="rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.2)] flex items-center justify-center shrink-0 w-24 h-24 md:w-28 md:h-28 overflow-hidden border-2 border-white/20">
+        <div className="flex items-center justify-center shrink-0">
+          <div className="rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.2)] flex items-center justify-center shrink-0 w-20 h-20 md:w-24 md:h-24 overflow-hidden border-2 border-white/20">
             <img src="/logo-toan-thay-trong.png.png" alt="Logo Toán Thầy Trọng 3T" className="w-[105%] h-[105%] object-cover" />
           </div>
         </div>
 
         {/* Center Text Section */}
-        <div className="flex-1 flex flex-col items-center text-center px-4">
-          <h1 className="text-xl sm:text-2xl md:text-[28px] lg:text-[30px] font-black uppercase tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)] leading-tight max-w-[800px]">
+        <div className="flex-1 flex flex-col items-center text-center px-2">
+          <h1 className="text-[11px] sm:text-[14px] md:text-[16px] lg:text-[19px] xl:text-[23px] font-black uppercase tracking-normal drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)] whitespace-nowrap">
             TÍCH HỢP NĂNG LỰC SỐ + AI + STEM VÀ CÁC NĂNG LỰC KHÁC VÀO KHBD
           </h1>
-          <p className="text-blue-50 text-[13px] md:text-[14px] font-semibold mt-2.5 drop-shadow-sm opacity-90 italic">
+          <p className="text-blue-50 text-[10px] sm:text-[12px] md:text-[13px] lg:text-[14px] font-semibold mt-1.5 drop-shadow-sm opacity-90 italic whitespace-nowrap">
             Hỗ trợ tích hợp Năng lực số toàn cấp bởi Thầy Nguyễn Đình Trọng - 3T
           </p>
         </div>
 
         {/* Right Buttons Section */}
-        <div className="flex flex-wrap justify-center lg:justify-end items-center gap-3 lg:w-1/4">
+        <div className="flex flex-wrap justify-center items-center gap-3 shrink-0">
           <button 
             onClick={() => setShowApiModal(true)}
             className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2.5 rounded-xl text-sm transition-all border border-white/20 backdrop-blur-sm shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
