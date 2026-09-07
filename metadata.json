@@ -1,0 +1,8 @@
+{
+  "name": "Soạn Giáo Án Năng Lực Số",
+  "description": "Công cụ hỗ trợ tích hợp năng lực số vào giáo án.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
