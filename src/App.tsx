@@ -120,9 +120,11 @@ export default function App() {
       Bạn hãy phân tích file giáo án đầu vào và trả về văn bản chứa CÁC ĐOẠN TEXT CẦN CHÈN để tôi bổ sung vào file Word.
       
       YÊU CẦU QUAN TRỌNG VỀ CẤU TRÚC VÀ VỊ TRÍ CHÈN (TUYỆT ĐỐI TUÂN THỦ CÁC QUY TẮC SAU):
-      Quy tắc 1: CHÈN MỤC TIÊU CHUNG (2.3, 2.4, 2.5) Ở ĐẦU GIÁO ÁN.
-      - Bạn BẮT BUỘC phải tìm đúng phần "2. Về năng lực" nằm trong "I. MỤC TIÊU" ở đầu giáo án.
-      - Hãy chọn câu tiêu đề cuối cùng của phần "2. Về năng lực" (ví dụ: "Năng lực đặc thù", "Năng lực riêng", "Năng lực toán học", "Năng lực") và copy Y HỆT NGUYÊN VĂN câu đó để làm TARGET.
+      Quy tắc 1: CHÈN MỤC TIÊU CHUNG (2.3, 2.4, 2.5) CHÍNH XÁC VÀO CUỐI PHẦN "2. VỀ NĂNG LỰC".
+      - TUYỆT ĐỐI KHÔNG được chèn các mục này ở cuối bài! Bạn BẮT BUỘC phải tìm đúng phần "I. MỤC TIÊU" -> "2. Về năng lực" (hoặc mục tương đương ở đầu giáo án).
+      - Hãy tìm CÂU VĂN HOẶC ĐOẠN VĂN CUỐI CÙNG của phần "2. Về năng lực" (đoạn nằm ngay trước khi bắt đầu sang phần "3. Về phẩm chất" hoặc "II. THIẾT BỊ DẠY HỌC").
+      - Copy Y HỆT NGUYÊN VĂN câu văn/đoạn văn cuối cùng đó để làm TARGET. Hệ thống sẽ chèn NLS ngay bên dưới câu văn này.
+      - Chú ý: KHÔNG dùng tiêu đề "2. Về năng lực" làm TARGET vì nó sẽ chèn lộn lên trên cùng của phần này. Hãy dùng nội dung của ý cuối cùng trong phần 2 làm TARGET.
       - Ngay sau TARGET này, chèn các mục: "2.3. Năng lực số", "2.4. Lồng ghép AI" (nếu có), "2.5. Lồng ghép STEM" (nếu có). Bạn PHẢI COPY NGUYÊN VĂN toàn bộ nội dung năng lực số từ file PPCT.
       - TUYỆT ĐỐI KHÔNG chèn mục 2.3, 2.4, 2.5 vào các Hoạt động (Hoạt động 1, Hoạt động 2...) ở bên dưới. Nó phải nằm ở phần MỤC TIÊU CHUNG của toàn bài.
       
@@ -133,7 +135,8 @@ export default function App() {
       - NẾU bạn thêm mục tiêu Năng lực số/AI vào một Hoạt động (ví dụ HĐ 1), thì BẮT BUỘC trong phần "Tổ chức thực hiện" của CHÍNH HOẠT ĐỘNG ĐÓ phải có hành động tương ứng của GV/HS. Tuyệt đối không được chèn mục tiêu ở HĐ 1 nhưng lại nhét hành động vào bảng của HĐ 2.
       
       Quy tắc 3: CÁCH XÁC ĐỊNH [TARGET] CHÍNH XÁC 100%:
-      - Để chèn vào cuối phần mục tiêu, HÃY dùng chính xác tiêu đề của mục đó làm TARGET. Ví dụ: [TARGET: a) Mục tiêu] hoặc [TARGET: 1. Mục tiêu] (tùy theo giáo án viết thế nào).
+      - ĐỂ CHÈN VÀO MỤC TIÊU CHUNG ("2. Về năng lực"): TUYỆT ĐỐI KHÔNG dùng các tiêu đề (như "2. Về năng lực" hoặc "Mục tiêu") làm TARGET, vì nó sẽ chèn nội dung lên trên cùng, đẩy các nội dung cũ xuống dưới. Bạn PHẢI COPY NGUYÊN VĂN CÂU VĂN CUỐI CÙNG của mục đó để làm TARGET. Hệ thống sẽ chèn vào ngay bên dưới câu đó.
+      - ĐỂ CHÈN VÀO MỤC TIÊU CỦA TỪNG HOẠT ĐỘNG (Ví dụ: "a) Mục tiêu" trong Hoạt động 1): Tương tự, hãy copy câu văn cuối cùng của phần "a) Mục tiêu" đó làm TARGET.
       - ĐỂ CHÈN VÀO BẢNG "TỔ CHỨC THỰC HIỆN": TUYỆT ĐỐI KHÔNG dùng các từ ở cột trái (như "Chuyển giao", "Thực hiện", "Báo cáo") làm TARGET, vì nội dung sẽ bị chèn nhầm vào cột trái. 
       - BẠN PHẢI copy TRỌN VẸN MỘT CÂU VĂN ở CỘT PHẢI (cột nội dung) của bước tương ứng làm TARGET. Hệ thống sẽ chèn NLS vào ngay bên dưới câu văn đó ở cột phải. (Ví dụ: [TARGET: GV yêu cầu HS thảo luận nhóm đôi để trả lời các câu hỏi.]).
       Vì các khối TARGET được xử lý theo thứ tự từ trên xuống dưới, nên hệ thống sẽ tự động tìm đúng vị trí của từng hoạt động.
