@@ -508,26 +508,32 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#f0f5fa] text-slate-800 font-sans pb-20">
       {/* Header */}
-      <header className="bg-[#3b72f5] text-white py-5 px-8 shadow-md flex flex-wrap items-center justify-between gap-4 sticky top-0 z-50">
-        <div className="flex items-center gap-5">
-          <div className="bg-white/10 p-3 rounded-2xl border border-white/20 shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
-            <GraduationCap className="w-8 h-8 drop-shadow-md" strokeWidth={1.5} />
-          </div>
-          <div>
-            <h1 className="text-2xl md:text-[28px] font-black uppercase tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]">Soạn Giáo Án Năng Lực Số</h1>
-            <p className="text-blue-50 text-[15px] font-semibold mt-1 drop-shadow-sm">Hỗ trợ tích hợp Năng lực số toàn cấp bởi thầy Nguyễn Đình Trọng - 3T</p>
+      <header className="bg-[#3b72f5] text-white py-5 px-6 shadow-md flex flex-col lg:flex-row items-center justify-between gap-6 sticky top-0 z-50">
+        
+        {/* Logo Section */}
+        <div className="flex items-center lg:w-1/4 justify-center lg:justify-start">
+          <div className="rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.2)] flex items-center justify-center shrink-0 w-24 h-24 md:w-28 md:h-28 overflow-hidden border-2 border-white/20">
+            <img src="/logo-toan-thay-trong.png.png" alt="Logo Toán Thầy Trọng 3T" className="w-[105%] h-[105%] object-cover" />
           </div>
         </div>
-        <div className="flex items-center gap-4">
+
+        {/* Center Text Section */}
+        <div className="flex-1 flex flex-col items-center text-center">
+          <h1 className="text-2xl md:text-[32px] font-black uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]">TÍCH HỢP NĂNG LỰC SỐ</h1>
+          <p className="text-blue-100 text-[15px] md:text-[17px] font-bold mt-2 drop-shadow-sm tracking-wide">Năng lực số + AI + STEM và các năng lực khác vào giáo án.</p>
+          <p className="text-blue-50 text-[13px] md:text-[14px] font-semibold mt-1.5 drop-shadow-sm opacity-90 italic">Hỗ trợ tích hợp Năng lực số toàn cấp bởi Thầy Nguyễn Đình Trọng - 3T</p>
+        </div>
+
+        {/* Right Buttons Section */}
+        <div className="flex flex-wrap justify-center lg:justify-end items-center gap-3 lg:w-1/4">
           <button 
             onClick={() => setShowApiModal(true)}
-            className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-5 py-2.5 rounded-xl text-sm transition-all border border-white/20 backdrop-blur-sm shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
+            className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2.5 rounded-xl text-sm transition-all border border-white/20 backdrop-blur-sm shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
             <Key className="w-4 h-4 text-yellow-400 drop-shadow-md" />
-            <span className="font-bold drop-shadow-sm">{apiKey ? 'Đã cấu hình API Key' : 'Lấy API key để sử dụng app'}</span>
-            <Settings className="w-4 h-4 opacity-80 ml-1" />
+            <span className="font-bold drop-shadow-sm">{apiKey ? 'Đã cấu hình API' : 'Lấy API key'}</span>
           </button>
-          <button className="hidden md:flex items-center gap-2 bg-transparent hover:bg-white/10 px-4 py-2.5 rounded-xl text-[15px] transition-all border border-transparent hover:border-white/20">
-            <BookOpen className="w-4.5 h-4.5 opacity-90 drop-shadow-sm" />
+          <button className="hidden sm:flex items-center gap-2 bg-transparent hover:bg-white/10 px-3 py-2.5 rounded-xl text-[14px] transition-all border border-transparent hover:border-white/20">
+            <BookOpen className="w-4 h-4 opacity-90 drop-shadow-sm" />
             <span className="font-bold drop-shadow-sm">Powered by Gemini</span>
           </button>
         </div>
@@ -887,9 +893,19 @@ export default function App() {
                   <span className="text-white text-xs font-bold">1</span>
                 </div>
                 <h4 className="text-[14px] font-bold text-slate-800 mb-1 flex items-center gap-1.5"><Key className="w-4 h-4 text-slate-500" /> Cấu hình API Key</h4>
-                <p className="text-[13.5px] text-slate-600 leading-relaxed mt-1.5">
-                  Lấy miễn phí tại <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold hover:underline">Google AI Studio</a>. Nhập vào nút <span className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-medium">Cấu hình API Key</span> ở khu vực bên trái.
+                <p className="text-[13.5px] text-slate-600 leading-relaxed mt-1.5 mb-2">
+                  Lấy miễn phí tại <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold hover:underline">Google AI Studio</a>.
                 </p>
+                <div className="space-y-2 text-[13.5px] text-slate-600">
+                  <div className="flex items-start gap-2">
+                    <span className="text-blue-500 font-bold mt-0.5">+</span>
+                    <p>Nhấn nút <b>Create an API key</b> → <b>Create a key</b>.</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-blue-500 font-bold mt-0.5">+</span>
+                    <p><b>Copy API key</b> vừa tạo và dán vào nút <span className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-medium">Cấu hình API Key</span> (ở trên cùng bên trái).</p>
+                  </div>
+                </div>
               </div>
 
               {/* Step 2 */}
@@ -1003,63 +1019,45 @@ export default function App() {
             <span className="w-12 h-[1px] bg-blue-300/30"></span>
           </p>
           
-          <div className="bg-[#172554]/50 border border-indigo-900/50 rounded-3xl p-8 sm:p-12 shadow-2xl backdrop-blur-sm flex flex-col md:flex-row items-center justify-center md:justify-between gap-12">
+          <div className="bg-[#172554]/50 border border-indigo-900/50 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-sm max-w-[600px] mx-auto">
             
-            {/* Left Column: Contact Info */}
-            <div className="flex flex-col gap-6 w-full md:w-[60%] text-center md:text-left order-2 md:order-1">
+            {/* Contact Info (Centered, 3 rows) */}
+            <div className="flex flex-col gap-3.5 text-center">
               
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
-                  <span className="text-xl font-bold text-yellow-400">Z</span>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 p-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+                  <span className="text-sm font-bold text-yellow-400">Z</span>
                 </div>
-                <div>
-                  <p className="text-blue-100 text-[13px] font-semibold mb-1 uppercase tracking-wider">Số điện thoại Zalo</p>
-                  <p className="text-white text-2xl font-bold tracking-wide">0352 445 795</p>
+                <div className="flex flex-col sm:flex-row items-center sm:gap-2">
+                  <span className="text-blue-100 text-[12.5px] font-semibold uppercase tracking-wider">Số điện thoại Zalo:</span>
+                  <span className="text-white text-[15px] font-bold tracking-wide">0352 445 795</span>
                 </div>
               </div>
 
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
-                  <span className="text-xl font-bold text-blue-400">O</span>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 p-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+                  <span className="text-sm font-bold text-blue-400">O</span>
                 </div>
-                <div>
-                  <p className="text-blue-100 text-[13px] font-semibold mb-1 uppercase tracking-wider">Zalo OA Toán Thầy Trọng</p>
-                  <a href="https://zalo.me/4026785664346244519" target="_blank" rel="noreferrer" className="text-blue-300 hover:text-white hover:underline text-[15px] font-medium break-all">
+                <div className="flex flex-col sm:flex-row items-center sm:gap-2">
+                  <span className="text-blue-100 text-[12.5px] font-semibold uppercase tracking-wider">Zalo OA Toán Thầy Trọng 3T:</span>
+                  <a href="https://zalo.me/4026785664346244519" target="_blank" rel="noreferrer" className="text-blue-300 hover:text-white hover:underline text-[13.5px] font-medium break-all">
                     zalo.me/4026785664346244519
                   </a>
                 </div>
               </div>
 
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
-                  <span className="text-xl font-bold text-blue-400">f</span>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 p-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+                  <span className="text-sm font-bold text-blue-400">f</span>
                 </div>
-                <div>
-                  <p className="text-blue-100 text-[13px] font-semibold mb-1 uppercase tracking-wider">Facebook Cá Nhân</p>
-                  <a href="https://www.facebook.com/nguyendinhtrong87" target="_blank" rel="noreferrer" className="text-blue-300 hover:text-white hover:underline text-[15px] font-medium break-all">
+                <div className="flex flex-col sm:flex-row items-center sm:gap-2">
+                  <span className="text-blue-100 text-[12.5px] font-semibold uppercase tracking-wider">Facebook Cá Nhân:</span>
+                  <a href="https://www.facebook.com/nguyendinhtrong87" target="_blank" rel="noreferrer" className="text-blue-300 hover:text-white hover:underline text-[13.5px] font-medium break-all">
                     facebook.com/nguyendinhtrong87
                   </a>
                 </div>
               </div>
 
-            </div>
-
-            {/* Right Column: Logo */}
-            <div className="w-full md:w-[40%] flex justify-center order-1 md:order-2">
-               <div className="relative group cursor-pointer w-48 sm:w-56 aspect-square flex justify-center items-center">
-                 <div className="absolute inset-0 bg-yellow-400 rounded-full blur-[40px] opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-                 {/* Replace this with the user's uploaded logo once pushed to public */}
-                 <img 
-                   src="/logo-toan-thay-trong.png.png" 
-                   alt="Logo Toán Thầy Trọng 3T" 
-                   className="w-[85%] h-[85%] object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)] hover:scale-105 transition-transform duration-500 relative z-10"
-                   onError={(e) => {
-                     // Fallback if logo not found yet
-                     e.currentTarget.onerror = null;
-                     e.currentTarget.src = "https://ui-avatars.com/api/?name=3T&background=facc15&color=000&size=400&font-size=0.4&bold=true";
-                   }}
-                 />
-               </div>
             </div>
 
           </div>
