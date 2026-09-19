@@ -141,7 +141,12 @@ export default function App() {
       - BẠN PHẢI copy TRỌN VẸN MỘT CÂU VĂN ở CỘT PHẢI (cột nội dung) của bước tương ứng làm TARGET. Hệ thống sẽ chèn NLS vào ngay bên dưới câu văn đó ở cột phải. (Ví dụ: [TARGET: GV yêu cầu HS thảo luận nhóm đôi để trả lời các câu hỏi.]).
       Vì các khối TARGET được xử lý theo thứ tự từ trên xuống dưới, nên hệ thống sẽ tự động tìm đúng vị trí của từng hoạt động.
       
-      Quy tắc 4: Mọi văn bản bạn sinh ra BẮT BUỘC PHẢI BỌC TRONG THẺ MÀU. Dùng [RED]...[/RED] cho Năng lực số/STEM và [BLUE]...[/BLUE] cho Năng lực AI. Cả những mục như "2.3. Năng lực số:" cũng phải bọc thẻ. Nếu không bọc thẻ, chữ sẽ bị màu đen.
+      Quy tắc 4: Mọi văn bản bạn sinh ra BẮT BUỘC PHẢI BỌC TRONG THẺ MÀU:
+      - Dùng [RED]...[/RED] cho Năng lực số (màu đỏ).
+      - Dùng [BLUE]...[/BLUE] cho Năng lực AI (màu xanh lam).
+      - Dùng [PURPLE]...[/PURPLE] cho Vận dụng STEM / Lồng ghép STEM (màu tím).
+      - Dùng [GREEN]...[/GREEN] cho Tích hợp hỗ trợ học sinh khuyết tật (màu xanh).
+      Cả những mục như "2.3. Năng lực số:", "2.5. Lồng ghép STEM:", "- Đối với HSKT:" cũng phải bọc thẻ tương ứng. Nếu không bọc thẻ, chữ sẽ bị màu đen.
       
       Quy tắc 5: Nếu có công thức toán học, HÃY GÕ DƯỚI DẠNG CÔNG THỨC LATEX (ví dụ: $x^2$, $\frac{a}{b}$, $\sigma$) theo đúng yêu cầu của người dùng.
       
@@ -152,15 +157,31 @@ export default function App() {
         b) Nội dung (Tình huống STEM): (Đưa ra một tình huống thực tế cụ thể, yêu cầu đóng vai, ví dụ: "Kỹ sư quy hoạch...").
         c) Sản phẩm: (Yêu cầu đầu ra rõ ràng, ví dụ: Bản vẽ, mô hình, bảng dự toán...).
         d) Tổ chức thực hiện: BẮT BUỘC TRÌNH BÀY DƯỚI DẠNG BẢNG MARKDOWN (kẻ bảng 2 cột). Cột 1 là Bước (Chuyển giao nhiệm vụ, Thực hiện nhiệm vụ, Báo cáo thảo luận, Đánh giá nhận xét tổng hợp). Cột 2 là Nội dung.
-      - TOÀN BỘ HOẠT ĐỘNG STEM MỚI NÀY PHẢI ĐƯỢC BỌC TRONG THẺ [BLUE] (Màu xanh lam đậm) để phân biệt rõ ràng.
+      - TOÀN BỘ HOẠT ĐỘNG STEM MỚI NÀY PHẢI ĐƯỢC BỌC TRONG THẺ [PURPLE] (Màu tím) để phân biệt rõ ràng.
       - TUYỆT ĐỐI TÁCH BIỆT: Hoạt động STEM này KHÔNG ĐƯỢC ghép chung vào TARGET của phần Mục tiêu. Nó BẮT BUỘC PHẢI NẰM DƯỚI MỘT TARGET ĐỘC LẬP LÀ: [TARGET: END_OF_DOCUMENT]. Hệ thống sẽ tự động ghép toàn bộ khối này vào cuối file Word.
+
+      Quy tắc 7 (Thể hiện mục tiêu cho học sinh khuyết tật - HSKT): Nếu tùy chọn "Tích hợp cho học sinh khuyết tật" được bật, BẮT BUỘC thể hiện các mục tiêu dành cho học sinh khuyết tật theo đúng cú pháp mẫu chuẩn:
+      "- Đối với HSKT: [nội dung tích hợp]"
+      và BẮT BUỘC BỌC TRONG THẺ CHỮ MÀU XANH [GREEN]- Đối với HSKT: ...[/GREEN] tại các vị trí chính xác sau:
+      1. Ở phần "I. MỤC TIÊU" (Mục tiêu chung của Bài/Chủ đề):
+         - Mục "1. Về kiến thức": Gạch đầu dòng CUỐI CÙNG của mục Kiến thức là mục tiêu dành cho HSKT. Hãy tìm câu/gạch đầu dòng cuối cùng hiện có của mục Kiến thức làm [TARGET], chèn ngay bên dưới:
+           [GREEN]- Đối với HSKT: [Nội dung mục tiêu kiến thức cốt lõi được tinh giản, nhận biết phù hợp khả năng của học sinh khuyết tật][/GREEN]
+         - Mục "2. Về năng lực": Gạch đầu dòng CUỐI CÙNG của phần Năng lực là mục tiêu năng lực dành cho HSKT. Hãy tìm câu/gạch đầu dòng cuối cùng của phần Năng lực (nằm sau mục Năng lực số 2.3 nếu có) làm [TARGET], chèn ngay bên dưới:
+           [GREEN]- Đối với HSKT: [Nội dung mục tiêu năng lực phù hợp như thao tác thực hành cơ bản, quan sát, khả năng hợp tác hòa nhập nhóm][/GREEN]
+         - Mục "3. Về phẩm chất": Gạch đầu dòng CUỐI CÙNG của mục Phẩm chất là mục tiêu phẩm chất dành cho HSKT. Hãy tìm câu/gạch đầu dòng cuối cùng của mục Phẩm chất làm [TARGET], chèn ngay bên dưới:
+           [GREEN]- Đối với HSKT: [Nội dung mục tiêu phẩm chất rèn luyện ý thức tự tin, nỗ lực hòa nhập, chủ động tham gia cùng bạn học][/GREEN]
+      2. Ở gạch đầu dòng CUỐI CÙNG trong Mục tiêu của TỪNG HOẠT ĐỘNG dạy học:
+         - Trong TẤT CẢ các hoạt động: Khởi động (Mở đầu), Hình thành kiến thức mới, Luyện tập và Vận dụng:
+           Tại phần mục tiêu của hoạt động (thường là "a) Mục tiêu" hoặc "1. Mục tiêu"), hãy tìm câu/gạch đầu dòng cuối cùng trong mục tiêu của hoạt động đó làm [TARGET].
+           Chèn gạch đầu dòng cuối cùng bằng chữ màu xanh [GREEN] theo đúng mẫu:
+           [GREEN]- Đối với HSKT: [Nội dung mục tiêu cụ thể của hoạt động mà học sinh khuyết tật có thể tham gia, quan sát hoặc hoàn thành với sự trợ giúp của giáo viên và bạn học][/GREEN]
 
       Các yêu cầu tích hợp bổ sung:
       - Năng lực AI: ${options.ai ? 'Có' : 'Không'}
-      - Giáo dục hòa nhập: ${options.inclusion ? 'Có' : 'Không'}
+      - Tích hợp cho học sinh khuyết tật: ${options.inclusion ? 'Có (bọc thẻ [GREEN]...[/GREEN] màu xanh theo đúng mẫu "- Đối với HSKT: ...")' : 'Không'}
       - Ngoại ngữ (CLIL): ${options.language ? 'Có' : 'Không'}
       - Song ngữ Việt - Anh: ${options.bilingual ? 'Có' : 'Không'}
-      - Dành cho Toán KTD (STEM): ${options.toanKTD ? 'Có' : 'Không'}
+      - Dành cho Toán KTD (STEM): ${options.toanKTD ? 'Có (bọc thẻ [PURPLE]...[/PURPLE] màu tím)' : 'Không'}
 
       Dựa trên nội dung file giáo án "${lessonPlanFile.name}" dưới đây ${curriculumFile ? `(và file PPCT đính kèm)` : ''} ${textbookFile ? `(kết hợp với dữ liệu Sách giáo khoa đính kèm để hiểu sâu bài học)` : ''}, hãy sinh ra nội dung.
       
@@ -171,6 +192,8 @@ export default function App() {
       Trình bày nội dung xuất ra thành một văn bản thuần túy (raw text) có sử dụng các thẻ để đánh dấu màu sắc và vị trí:
       - Bao bọc các đoạn text cần bôi màu đỏ bằng thẻ [RED]...[/RED]. (Mọi nội dung liên quan đến Năng lực số, bao gồm mục 2.3, mục tiêu hoạt động, và hành động tổ chức thực hiện ĐỀU PHẢI ĐƯỢC BỌC TRONG THẺ [RED]).
       - Bao bọc các đoạn text cần bôi màu xanh lam bằng thẻ [BLUE]...[/BLUE].
+      - Bao bọc các đoạn text cần bôi màu tím (STEM) bằng thẻ [PURPLE]...[/PURPLE].
+      - Bao bọc các đoạn text cần bôi màu xanh (Hỗ trợ học sinh khuyết tật) bằng thẻ [GREEN]...[/GREEN].
       - KHÔNG DÙNG MARKDOWN CODE BLOCK BỌC KẾT QUẢ, TRẢ VỀ RAW TEXT VỚI THẺ.
 
       YÊU CẦU ĐỊNH DẠNG ĐẦU RA BẮT BUỘC ĐỂ HỆ THỐNG TỰ ĐỘNG CHÈN (QUAN TRỌNG NHẤT):
@@ -182,14 +205,19 @@ export default function App() {
       3. CÁC KHỐI TARGET PHẢI ĐƯỢC SẮP XẾP ĐÚNG THEO THỨ TỰ XUẤT HIỆN TRONG GIÁO ÁN TỪ TRÊN XUỐNG DƯỚI.
       
       Ví dụ mẫu đầu ra mong muốn:
-      [TARGET: b) Năng lực đặc thù] (hoặc copy đúng tiêu đề mục tiêu năng lực trong file)
+      ${options.inclusion ? `[TARGET: (câu cuối cùng trong phần 1. Về kiến thức)]
+      [GREEN]- Đối với HSKT: Nhận biết và hiểu được các khái niệm cơ bản với sự hỗ trợ của giáo viên và bạn học.[/GREEN]
+
+      ` : ''}[TARGET: (câu cuối cùng trong phần 2. Về năng lực)]
       [RED]2.3. Năng lực số:
       - Tích hợp Năng lực số: 1.1.NC1b...[/RED]
-      ${options.ai ? '[BLUE]2.4. Lồng ghép AI:\n- Tích hợp Lồng ghép AI...[/BLUE]' : ''}
-      ${options.toanKTD ? '[RED]2.5. Lồng ghép STEM:\n- Tích hợp Lồng ghép STEM...[/RED]' : ''}
+      ${options.ai ? '[BLUE]2.4. Lồng ghép AI:\n- Tích hợp Lồng ghép AI...[/BLUE]\n      ' : ''}${options.toanKTD ? '[PURPLE]2.5. Lồng ghép STEM:\n- Tích hợp Lồng ghép STEM...[/PURPLE]\n      ' : ''}${options.inclusion ? '[GREEN]- Đối với HSKT: Rèn luyện kỹ năng quan sát, sử dụng thiết bị học tập đơn giản và tích cực tham gia hoạt động nhóm hòa nhập.[/GREEN]\n      ' : ''}
+      ${options.inclusion ? `[TARGET: (câu cuối cùng trong phần 3. Về phẩm chất)]
+      [GREEN]- Đối với HSKT: Rèn luyện sự tự tin, nỗ lực hòa nhập và tinh thần hợp tác tích cực cùng các bạn trong lớp.[/GREEN]
 
-      [TARGET: a) Mục tiêu]
+      ` : ''}[TARGET: a) Mục tiêu]
       [RED]- Tích hợp năng lực số: 1.1.NC1b: Biết ứng dụng phần mềm/máy tính để chuyển đổi đơn vị nhằm tính toán nhanh chóng các đặc trưng cơ bản...[/RED]
+      ${options.inclusion ? '[GREEN]- Đối với HSKT: Tham gia cùng nhóm thực hiện nhiệm vụ khởi động ở mức độ nhận biết và quan sát trực quan.[/GREEN]' : ''}
 
       [TARGET: GV yêu cầu HS đọc yêu cầu của HĐ1 rồi yêu cầu thảo luận nhóm đôi để trả lời các câu hỏi.]
       [RED]- GV hướng dẫn quy trình thao tác bấm máy tính cầm tay (chế độ Thống kê - Statistics) để nhập giá trị đại diện...[/RED]
@@ -198,7 +226,7 @@ export default function App() {
       [RED]- HS thực hành thao tác bấm máy tính cầm tay để tính $s^2, s$ cho Ví dụ 1 và đối chiếu kiểm tra lại kết quả...[/RED]
       
       ${options.toanKTD ? `[TARGET: END_OF_DOCUMENT]
-      [BLUE]Hoạt động 4.4. Vận dụng STEM - Kỹ sư Quy hoạch: Thiết kế không gian cảnh quan tối ưu (15 phút)
+      [PURPLE]Hoạt động 4.4. Vận dụng STEM - Kỹ sư Quy hoạch: Thiết kế không gian cảnh quan tối ưu (15 phút)
       a) Mục tiêu:
       - Vận dụng kiến thức về hệ trục tọa độ trong không gian...
       b) Nội dung (Tình huống STEM): Nhà trường dự kiến cải tạo một khu đất trống...
@@ -209,7 +237,7 @@ export default function App() {
       | Chuyển giao nhiệm vụ | GV chia lớp thành các văn phòng "Kỹ sư quy hoạch"... |
       | Thực hiện nhiệm vụ | HS phân công trong nhóm, dùng tính chất trọng tâm... |
       | Báo cáo thảo luận | Các nhóm trình chiếu mô hình... |
-      | Đánh giá, nhận xét, tổng hợp | GV nhận xét sự chính xác trong các thao tác... |[/BLUE]
+      | Đánh giá, nhận xét, tổng hợp | GV nhận xét sự chính xác trong các thao tác... |[/PURPLE]
       ` : ''}
       `;
 
@@ -316,8 +344,13 @@ export default function App() {
     for (let line of lines) {
       if (line.includes('[RED]')) currentColor = "C00000";
       if (line.includes('[BLUE]')) currentColor = "2F5496";
+      if (line.includes('[GREEN]')) currentColor = "008000";
+      if (line.includes('[PURPLE]')) currentColor = "7030A0";
       
-      let cleanLine = line.replace(/\[RED\]/g, '').replace(/\[\/RED\]/g, '').replace(/\[BLUE\]/g, '').replace(/\[\/BLUE\]/g, '').trim();
+      let cleanLine = line
+        .replace(/\[(RED|BLUE|GREEN|PURPLE)\]/g, '')
+        .replace(/\[\/(RED|BLUE|GREEN|PURPLE)\]/g, '')
+        .trim();
       cleanLine = cleanLine.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
       
       if (cleanLine.startsWith('|') && cleanLine.endsWith('|')) {
@@ -332,7 +365,7 @@ export default function App() {
           const cells = cleanLine.substring(1, cleanLine.length - 1).split('|');
           for (let cell of cells) {
               let text = cell.trim();
-              xmlParagraphs += `<w:tc><w:tcPr><w:tcW w:w="0" w:type="auto"/></w:tcPr><w:p><w:r><w:rPr><w:color w:val="${currentColor}"/></w:rPr><w:t>${text}</w:t></w:r></w:p></w:tc>`;
+              xmlParagraphs += `<w:tc><w:tcPr><w:tcW w:w="0" w:type="auto"/></w:tcPr><w:p><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:color w:val="${currentColor}"/></w:rPr><w:t xml:space="preserve">${text}</w:t></w:r></w:p></w:tc>`;
           }
           xmlParagraphs += `</w:tr>`;
       } else {
@@ -340,10 +373,10 @@ export default function App() {
               inTable = false;
               xmlParagraphs += `</w:tbl>`;
           }
-          xmlParagraphs += `<w:p><w:r><w:rPr><w:color w:val="${currentColor}"/></w:rPr><w:t>${cleanLine}</w:t></w:r></w:p>`;
+          xmlParagraphs += `<w:p><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:color w:val="${currentColor}"/></w:rPr><w:t xml:space="preserve">${cleanLine}</w:t></w:r></w:p>`;
       }
       
-      if (line.includes('[/RED]') || line.includes('[/BLUE]')) currentColor = "000000";
+      if (line.includes('[/RED]') || line.includes('[/BLUE]') || line.includes('[/GREEN]') || line.includes('[/PURPLE]')) currentColor = "000000";
     }
     if (inTable) xmlParagraphs += `</w:tbl>`;
     return xmlParagraphs;
@@ -472,7 +505,9 @@ export default function App() {
 
   const handleCopy = () => {
     if (!aiResultText) return;
-    const rawAiText = aiResultText.replace(/\[RED\]/g, '').replace(/\[\/RED\]/g, '').replace(/\[BLUE\]/g, '').replace(/\[\/BLUE\]/g, '');
+    const rawAiText = aiResultText
+      .replace(/\[(RED|BLUE|GREEN|PURPLE)\]/g, '')
+      .replace(/\[\/(RED|BLUE|GREEN|PURPLE)\]/g, '');
     navigator.clipboard.writeText(rawAiText);
     alert("Đã sao chép nội dung vào bộ nhớ tạm!");
   };
@@ -480,14 +515,14 @@ export default function App() {
   const renderColorizedText = (text: string) => {
     const parts = [];
     let currentIndex = 0;
-    const regex = /\[(RED|BLUE)\]([\s\S]*?)\[\/\1\]/g;
+    const regex = /\[(RED|BLUE|GREEN|PURPLE)\]([\s\S]*?)\[\/\1\]/g;
     let match;
     
     while ((match = regex.exec(text)) !== null) {
       if (match.index > currentIndex) {
         parts.push({ type: 'normal', content: text.substring(currentIndex, match.index) });
       }
-      parts.push({ type: match[1] === 'RED' ? 'red' : 'blue', content: match[2] });
+      parts.push({ type: match[1].toLowerCase(), content: match[2] });
       currentIndex = regex.lastIndex;
     }
     
@@ -501,6 +536,8 @@ export default function App() {
            let classes = "whitespace-pre-wrap ";
            if (part.type === 'red') classes += "text-red-600 font-medium";
            else if (part.type === 'blue') classes += "text-blue-600 font-medium";
+           else if (part.type === 'green') classes += "text-emerald-600 font-medium";
+           else if (part.type === 'purple') classes += "text-purple-600 font-medium";
            else classes += "text-slate-800";
            return <span key={i} className={classes}>{part.content}</span>;
         })}
@@ -720,14 +757,14 @@ export default function App() {
                 </div>
               </label>
               
-              {/* Checkbox 2 */}
-              <label className="flex items-start gap-4 p-4 rounded-lg border border-purple-200 bg-white/60 cursor-pointer hover:bg-purple-50/80 hover:border-purple-300 transition-all shadow-sm">
-                <input type="checkbox" checked={options.inclusion} onChange={(e) => setOptions({...options, inclusion: e.target.checked})} className="mt-1 w-5 h-5 text-purple-600 rounded border-gray-300 focus:ring-purple-500 cursor-pointer" />
+              {/* Checkbox 2 - Học sinh khuyết tật */}
+              <label className="flex items-start gap-4 p-4 rounded-lg border border-emerald-200 bg-[#f0fdf4]/50 cursor-pointer hover:bg-emerald-50/80 hover:border-emerald-300 transition-all shadow-sm">
+                <input type="checkbox" checked={options.inclusion} onChange={(e) => setOptions({...options, inclusion: e.target.checked})} className="mt-1 w-5 h-5 text-emerald-600 rounded border-gray-300 focus:ring-emerald-500 cursor-pointer" />
                 <div>
-                  <p className="font-bold text-purple-900 flex items-center gap-2 text-sm">
-                    <Heart className="w-4 h-4 text-purple-500"/> Thêm năng lực cho giáo án giáo dục hòa nhập
+                  <p className="font-bold text-emerald-900 flex items-center gap-2 text-sm">
+                    <Heart className="w-4 h-4 text-emerald-600"/> Tích hợp cho học sinh khuyết tật
                   </p>
-                  <p className="text-[13px] text-purple-600/80 mt-0.5">Sử dụng dữ liệu giáo dục hòa nhập & giải pháp hỗ trợ học sinh khuyết tật (hiển thị màu tím)</p>
+                  <p className="text-[13px] text-emerald-700/90 mt-0.5">Tự động thêm mục tiêu theo mẫu &quot;- Đối với HSKT: ...&quot; vào cuối Kiến thức, Năng lực, Phẩm chất &amp; các hoạt động (chữ màu xanh)</p>
                 </div>
               </label>
               
@@ -753,14 +790,14 @@ export default function App() {
                 </div>
               </label>
 
-              {/* Checkbox Toán KTD */}
-              <label className="flex items-start gap-4 p-4 rounded-lg border border-red-200 bg-[#fff1f2] cursor-pointer hover:bg-red-50 hover:border-red-300 transition-all shadow-sm">
-                <input type="checkbox" checked={options.toanKTD} onChange={(e) => setOptions({...options, toanKTD: e.target.checked})} className="mt-1 w-5 h-5 text-red-600 rounded border-gray-300 focus:ring-red-500 cursor-pointer" />
+              {/* Checkbox Toán KTD (Tích hợp STEM) */}
+              <label className="flex items-start gap-4 p-4 rounded-lg border border-purple-200 bg-[#faf5ff] cursor-pointer hover:bg-purple-50/80 hover:border-purple-300 transition-all shadow-sm">
+                <input type="checkbox" checked={options.toanKTD} onChange={(e) => setOptions({...options, toanKTD: e.target.checked})} className="mt-1 w-5 h-5 text-purple-600 rounded border-gray-300 focus:ring-purple-500 cursor-pointer" />
                 <div>
-                  <p className="font-bold text-[#9f1239] flex items-center gap-2 text-sm">
-                    <Calculator className="w-4 h-4 text-red-700"/> Dành cho Toán KTD (Tích hợp STEM)
+                  <p className="font-bold text-purple-900 flex items-center gap-2 text-sm">
+                    <Calculator className="w-4 h-4 text-purple-600"/> Dành cho Toán KTD (Tích hợp STEM)
                   </p>
-                  <p className="text-[13px] text-red-700/90 mt-1 leading-snug">AI sẽ tự động dò tìm chủ đề STEM trong PPCT và sinh ra một Hoạt động Vận dụng STEM ở cuối giáo án.</p>
+                  <p className="text-[13px] text-purple-700/90 mt-1 leading-snug">AI sẽ tự động dò tìm chủ đề STEM trong PPCT và sinh ra một Hoạt động Vận dụng STEM ở cuối giáo án.</p>
                 </div>
               </label>
               
@@ -840,8 +877,16 @@ export default function App() {
                     <span className="mr-1.5 font-bold">✓</span> XML Injection: giữ nguyên <span className="font-bold ml-1 mr-1">bảng biểu, MathType/OLE, hình ảnh và cấu trúc</span>; chỉ chèn nội dung mới
                   </div>
                   
-                  <div className="text-red-500 text-[13px] px-4 py-1 rounded bg-[#fef2f2] inline-flex items-center text-center">
-                    <span className="mr-1.5">📌</span> Nội dung NLS: <span className="font-bold ml-1 mr-1 text-red-600">màu đỏ (Times New Roman — Toán KTD)</span> • Năng lực AI: <span className="font-bold text-[#2563eb] ml-1.5 mr-1.5">màu xanh lam</span> • Phân bố vào: Cột phải bảng d) Tổ chức thực hiện
+                  <div className="text-slate-700 text-[13px] px-4 py-1.5 rounded bg-white border border-slate-200 shadow-xs inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center">
+                    <span>📌 NLS: <strong className="text-red-600 font-bold">màu đỏ</strong></span>
+                    <span>•</span>
+                    <span>AI: <strong className="text-[#2563eb] font-bold">màu xanh lam</strong></span>
+                    <span>•</span>
+                    <span>STEM: <strong className="text-purple-600 font-bold">màu tím</strong></span>
+                    <span>•</span>
+                    <span>HS khuyết tật: <strong className="text-emerald-600 font-bold">màu xanh</strong></span>
+                    <span>•</span>
+                    <span className="text-slate-500">Phân bố vào: Cột phải bảng d) Tổ chức thực hiện</span>
                   </div>
                 </div>
                 
